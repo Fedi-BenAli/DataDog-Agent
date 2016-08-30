@@ -1,0 +1,6 @@
+init_config:
+    default_timeout: 5
+ 
+instances:
+    -   url: https://b2b.quandoo.com/
+    -   url: https://b2b.quandoo.com/test
