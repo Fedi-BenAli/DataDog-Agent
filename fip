@@ -1,0 +1,15 @@
+apiVersion: ip.openstack.crossplane.io/v1alpha1
+kind: FloatingIP
+metadata:
+  name: my-floating-ip
+  namespace: your-namespace  # Replace with your namespace
+spec:
+  forProvider:
+    ipAddress: "192.168.1.150"   # Optional: specify a specific IP address, or leave it empty to auto-allocate.
+    floatingNetworkId: "public"   # Reference to the floating network (often called 'public' in OpenStack)
+    # Optionally specify 'portId' if you want to associate the Floating IP with a specific port
+  providerConfigRef:
+    name: openstack-provider      # Reference to your ProviderConfig
+  writeConnectionSecretsToRef:
+    name: my-floating-ip-connection  # Secret name for connection info
+    namespace: crossplane-system       # Namespace for the 
