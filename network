@@ -1,0 +1,15 @@
+apiVersion: network.openstack.crossplane.io/v1alpha1
+kind: Network
+metadata:
+  name: my-network
+  namespace: your-namespace  # Replace with your namespace
+spec:
+  forProvider:
+    name: my-network     # Name for the network in OpenStack
+    adminStateUp: true   # Set the network to be active
+    # Optionally specify other fields like tags
+  providerConfigRef:
+    name: openstack-provider  # Reference to your ProviderConfig
+  writeConnectionSecretsToRef:
+    name: my-network-connection
+    namespace: crossplane-system
